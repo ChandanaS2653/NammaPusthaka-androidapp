@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.nammapustaka.app-mergeDebugResources-58:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Chandana S\\.gradle\\caches\\9.0.0\\transforms\\f4a3f2576407b8fb2ba3c02f3a6e0192\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

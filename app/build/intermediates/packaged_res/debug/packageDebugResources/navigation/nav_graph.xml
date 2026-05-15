@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catalogFragment">
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.nammapustaka.ui.catalog.CatalogFragment"
+        android:label="Catalog">
+        <action
+            android:id="@+id/action_catalog_to_addBook"
+            app:destination="@id/addBookFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.nammapustaka.ui.catalog.AddBookFragment"
+        android:label="Add Book" />
+
+    <fragment
+        android:id="@+id/qrScanFragment"
+        android:name="com.nammapustaka.ui.borrow.QRScanFragment"
+        android:label="Borrow Book" />
+
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.nammapustaka.ui.transactions.TransactionsFragment"
+        android:label="Active Borrows" />
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.nammapustaka.ui.leaderboard.LeaderboardFragment"
+        android:label="Leaderboard" />
+
+</navigation>

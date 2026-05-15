@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/activity_main.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/fragment_leaderboard.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/fragment_leaderboard.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/fragment_qr_scan.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/fragment_qr_scan.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/fragment_transactions.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/fragment_transactions.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/fragment_catalog.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/fragment_catalog.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/item_leaderboard.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/item_leaderboard.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/item_transaction.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/item_transaction.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/item_book.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/item_book.xml"
+    },
+    {
+        "merged": "com.nammapustaka.app-mergeDebugResources-59:/layout/fragment_add_book.xml",
+        "source": "com.nammapustaka.app-main-62:/layout/fragment_add_book.xml"
+    }
+]
