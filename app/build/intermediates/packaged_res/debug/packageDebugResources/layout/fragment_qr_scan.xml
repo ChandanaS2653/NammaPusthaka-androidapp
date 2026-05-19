@@ -1,67 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#000000">
 
-    <androidx.camera.view.PreviewView
-        android:id="@+id/cameraPreview"
+    <!-- Camera Preview (top half) -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Point camera at book QR code"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        android:padding="16dp"
-        android:background="#AA000000"
-        android:layout_gravity="top" />
+        <androidx.camera.view.PreviewView
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
+        <!-- Scanning overlay frame -->
+        <View
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/qr_scan_overlay" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Point camera at book QR code"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:padding="12dp"
+            android:background="#AA000000"
+            android:layout_gravity="top" />
+
+    </FrameLayout>
+
+    <!-- Bottom Panel (always visible) -->
     <LinearLayout
-        android:id="@+id/layoutResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@android:color/white"
-        android:padding="20dp"
-        android:layout_gravity="bottom"
-        android:visibility="gone">
+        android:padding="16dp">
 
+        <!-- Status text -->
         <TextView
-            android:id="@+id/tvScannedCode"
+            android:id="@+id/tvScanStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:textColor="@color/green_primary"
+            android:text="Waiting for QR scan..."
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:textAlignment="center"
             android:layout_marginBottom="12dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <!-- Manual QR entry -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Student ID"
-            android:layout_marginBottom="12dp">
+            android:text="Enter QR Code manually (e.g. QR001, QR002 ... QR007)"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:layout_marginBottom="4dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etStudentId"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="QR Code"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etManualQR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textAllCaps="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLookup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Look Up"
+                android:layout_gravity="center_vertical"
+                app:backgroundTint="@color/green_primary" />
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Book info after scan/lookup -->
+        <LinearLayout
+            android:id="@+id/layoutResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvScannedCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/green_primary"
+                android:layout_marginBottom="10dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIssueBook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Issue Book to Student"
-            app:backgroundTint="@color/green_primary" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Student ID (1, 2, 3 or 4)"
+                android:layout_marginBottom="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etStudentId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIssueBook"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Issue Book"
+                    android:layout_marginEnd="8dp"
+                    app:backgroundTint="@color/green_primary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnScanAgain"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Scan Again"
+                    app:backgroundTint="#757575" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

@@ -3165,6 +3165,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable qr_scan_overlay
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3274,8 +3275,10 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnIssueBook
+id btnLookup
 id btnReturn
 id btnSaveBook
+id btnScanAgain
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3363,6 +3366,7 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id etAuthor
+id etManualQR
 id etPages
 id etStudentId
 id etTitle
@@ -3700,6 +3704,7 @@ id tvEmpty
 id tvOverdueTag
 id tvPages
 id tvRank
+id tvScanStatus
 id tvScannedCode
 id tvStudentName
 id tvTitle

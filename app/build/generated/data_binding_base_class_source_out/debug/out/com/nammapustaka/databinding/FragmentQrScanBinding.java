@@ -4,7 +4,6 @@ package com.nammapustaka.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -21,13 +20,22 @@ import java.lang.String;
 
 public final class FragmentQrScanBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final MaterialButton btnIssueBook;
 
   @NonNull
+  public final MaterialButton btnLookup;
+
+  @NonNull
+  public final MaterialButton btnScanAgain;
+
+  @NonNull
   public final PreviewView cameraPreview;
+
+  @NonNull
+  public final TextInputEditText etManualQR;
 
   @NonNull
   public final TextInputEditText etStudentId;
@@ -36,22 +44,32 @@ public final class FragmentQrScanBinding implements ViewBinding {
   public final LinearLayout layoutResult;
 
   @NonNull
+  public final TextView tvScanStatus;
+
+  @NonNull
   public final TextView tvScannedCode;
 
-  private FragmentQrScanBinding(@NonNull FrameLayout rootView, @NonNull MaterialButton btnIssueBook,
-      @NonNull PreviewView cameraPreview, @NonNull TextInputEditText etStudentId,
-      @NonNull LinearLayout layoutResult, @NonNull TextView tvScannedCode) {
+  private FragmentQrScanBinding(@NonNull LinearLayout rootView,
+      @NonNull MaterialButton btnIssueBook, @NonNull MaterialButton btnLookup,
+      @NonNull MaterialButton btnScanAgain, @NonNull PreviewView cameraPreview,
+      @NonNull TextInputEditText etManualQR, @NonNull TextInputEditText etStudentId,
+      @NonNull LinearLayout layoutResult, @NonNull TextView tvScanStatus,
+      @NonNull TextView tvScannedCode) {
     this.rootView = rootView;
     this.btnIssueBook = btnIssueBook;
+    this.btnLookup = btnLookup;
+    this.btnScanAgain = btnScanAgain;
     this.cameraPreview = cameraPreview;
+    this.etManualQR = etManualQR;
     this.etStudentId = etStudentId;
     this.layoutResult = layoutResult;
+    this.tvScanStatus = tvScanStatus;
     this.tvScannedCode = tvScannedCode;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -82,9 +100,27 @@ public final class FragmentQrScanBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnLookup;
+      MaterialButton btnLookup = ViewBindings.findChildViewById(rootView, id);
+      if (btnLookup == null) {
+        break missingId;
+      }
+
+      id = R.id.btnScanAgain;
+      MaterialButton btnScanAgain = ViewBindings.findChildViewById(rootView, id);
+      if (btnScanAgain == null) {
+        break missingId;
+      }
+
       id = R.id.cameraPreview;
       PreviewView cameraPreview = ViewBindings.findChildViewById(rootView, id);
       if (cameraPreview == null) {
+        break missingId;
+      }
+
+      id = R.id.etManualQR;
+      TextInputEditText etManualQR = ViewBindings.findChildViewById(rootView, id);
+      if (etManualQR == null) {
         break missingId;
       }
 
@@ -100,14 +136,21 @@ public final class FragmentQrScanBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvScanStatus;
+      TextView tvScanStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvScanStatus == null) {
+        break missingId;
+      }
+
       id = R.id.tvScannedCode;
       TextView tvScannedCode = ViewBindings.findChildViewById(rootView, id);
       if (tvScannedCode == null) {
         break missingId;
       }
 
-      return new FragmentQrScanBinding((FrameLayout) rootView, btnIssueBook, cameraPreview,
-          etStudentId, layoutResult, tvScannedCode);
+      return new FragmentQrScanBinding((LinearLayout) rootView, btnIssueBook, btnLookup,
+          btnScanAgain, cameraPreview, etManualQR, etStudentId, layoutResult, tvScanStatus,
+          tvScannedCode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

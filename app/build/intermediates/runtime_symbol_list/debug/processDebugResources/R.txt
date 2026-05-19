@@ -3164,6 +3164,7 @@ int drawable notification_template_icon_bg 0x7f0700f3
 int drawable notification_template_icon_low_bg 0x7f0700f4
 int drawable notification_tile_bg 0x7f0700f5
 int drawable notify_panel_notification_icon_bg 0x7f0700f6
+int drawable qr_scan_overlay 0x7f0700fa
 int drawable test_level_drawable 0x7f0700f7
 int drawable tooltip_frame_dark 0x7f0700f8
 int drawable tooltip_frame_light 0x7f0700f9
@@ -3273,8 +3274,10 @@ int id bounceBoth 0x7f080066
 int id bounceEnd 0x7f080067
 int id bounceStart 0x7f080068
 int id btnIssueBook 0x7f080069
+int id btnLookup 0x7f08022f
 int id btnReturn 0x7f08006a
 int id btnSaveBook 0x7f08006b
+int id btnScanAgain 0x7f080230
 int id buttonPanel 0x7f08006c
 int id cache_measures 0x7f08006d
 int id callMeasure 0x7f08006e
@@ -3362,6 +3365,7 @@ int id endToStart 0x7f0800bf
 int id enterAlways 0x7f0800c0
 int id enterAlwaysCollapsed 0x7f0800c1
 int id etAuthor 0x7f0800c2
+int id etManualQR 0x7f080231
 int id etPages 0x7f0800c3
 int id etStudentId 0x7f0800c4
 int id etTitle 0x7f0800c5
@@ -3699,6 +3703,7 @@ int id tvEmpty 0x7f080210
 int id tvOverdueTag 0x7f080211
 int id tvPages 0x7f080212
 int id tvRank 0x7f080213
+int id tvScanStatus 0x7f080232
 int id tvScannedCode 0x7f080214
 int id tvStudentName 0x7f080215
 int id tvTitle 0x7f080216
